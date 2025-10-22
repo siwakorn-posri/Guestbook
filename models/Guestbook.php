@@ -23,11 +23,11 @@ class Guestbook extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'message'], 'required'],
-            ['email', 'email'],
+            [['name', 'email', 'message'], 'required', 'message' => 'กรุณาระบุ {attribute}'],
+            [['name'], 'string', 'max' => 100],
+            ['email', 'email', 'message'=> 'กรุณากรอกอีเมลให้ถูกต้อง'],
             [['message'], 'string'],
             [['created_at'], 'safe'],
-            [['name'], 'string', 'max' => 100],
         ];
     }
 
@@ -36,7 +36,7 @@ class Guestbook extends \yii\db\ActiveRecord
         return [
             'name' => 'ชื่อผู้เขียน',
             'email' => 'อีเมล',
-            'message' => 'ข้อความทักทาย',
+            'message' => 'ข้อความ',
             'created_at' => 'วันที่ส่ง',
         ];
     }
