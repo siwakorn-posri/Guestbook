@@ -12,7 +12,7 @@ class m251020_110815_create_guestbook_table extends Migration
      */
     public function safeUp()
     {
-        $this->createTable('guestbook', [
+        $this->createTable('{{%guestbook}}', [
             'id' => $this->primaryKey(),              
             'name' => $this->string()->notNull(),     
             'email' => $this->string()->notNull(),    
